@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Takoyaki Lezat</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #ff7f50;
+      padding: 1rem 2rem;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    main {
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff7f50;
+      color: white;
+      border: none;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #ff5722;
+    }
+    .total {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Takoyaki Lezat</h1>
+  <p>Order Takoyaki Hangat, Gurih, dan Nikmat!</p>
+</header>
+
+<main>
+  <form id="orderForm">
+    <label for="nama">Nama Pemesan:</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="alamat">Alamat Pengiriman:</label>
+    <textarea id="alamat" name="alamat" rows="3" required></textarea>
+
+    <label for="jumlah">Jumlah Porsi (Rp 15.000 / porsi):</label>
+    <input type="number" id="jumlah" name="jumlah" min="1" value="1" required>
+
+    <label for="varian">Pilih Varian Rasa:</label>
+    <select id="varian" name="varian" required>
+      <option value="">-- Pilih Varian --</option>
+      <option value="Original">Original</option>
+      <option value="Keju">Keju</option>
+      <option value="Pedas">Pedas</option>
+    </select>
+
+    <div class="total" id="totalHarga">Total: Rp 15.000</div>
+
+    <button type="submit">Pesan Sekarang</button>
+  </form>
+</main>
+
+<footer>
+  &copy; 2025 Takoyaki Lezat. All rights reserved.
+</footer>
+
+<script>
+const jumlahInput = document.getElementById('jumlah');
+const totalHarga = document.getElementById('totalHarga');
+
+jumlahInput.addEventListener('input', function() {
+  let jumlah = jumlahInput.value;
+  let total = jumlah * 15000;
+  totalHarga.textContent = 'Total: Rp ' + total.toLocaleString('id-ID');
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Terima kasih telah memesan! Pesanan Anda sedang diproses.');
+  this.reset();
+  totalHarga.textContent = 'Total: Rp 15.000';
+});
+</script>
+
+</body>
+</html>
